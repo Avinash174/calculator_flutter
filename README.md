@@ -1,6 +1,6 @@
-# Calculator
+# Calculator 
 
-Basic Math Calculation App.
+A New Basic Math Calculation App.
 
 ## Getting Started
 
