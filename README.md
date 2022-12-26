@@ -1,4 +1,4 @@
-# calculator
+# Calculator
 
 Basic Math Calculation App.
 
