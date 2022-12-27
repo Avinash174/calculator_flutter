@@ -4,6 +4,7 @@ class MyButton extends StatelessWidget {
   final color;
   final textColor;
   final String buttonText;
+
   const MyButton(
       {Key? key, this.color, this.textColor, required this.buttonText})
       : super(key: key);
@@ -19,6 +20,7 @@ class MyButton extends StatelessWidget {
             buttonText,
             style: TextStyle(
               color: textColor,
+
             ),
           ),
         ),

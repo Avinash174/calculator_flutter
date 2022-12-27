@@ -67,7 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 4),
                         itemBuilder: (BuildContext context,int index){
-                          return MyButton(buttonText: buttons[index],
+                          return MyButton(
+                            buttonText: buttons[index],
                             color: Colors.deepOrange,
                             textColor: Colors.white,
                           );
