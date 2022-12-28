@@ -1,5 +1,6 @@
 import 'package:calculator/button.dart';
 import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 void main() {
   runApp(const MyApp());
@@ -99,8 +100,10 @@ class _MyHomePageState extends State<MyHomePage> {
                               buttonText: buttons[index],
                               color: Colors.green,
                               textColor: Colors.white,
-                            ); //Delete Button
-                          } else if (index == 1) {
+                            );
+                          }
+                          //Delete Button
+                          else if (index == 1) {
                             return MyButton(
                               buttonTapped: (){
                                 setState(() {
@@ -111,7 +114,21 @@ class _MyHomePageState extends State<MyHomePage> {
                               color: Colors.redAccent,
                               textColor: Colors.white,
                             );
-                          } else
+                          }
+                          //Equal Button
+                          else if (index == buttons.length-1) {
+                            return MyButton(
+                              buttonTapped: (){
+                                setState(() {
+                                  equalPressed();
+                                });
+                              },
+                              buttonText: buttons[index],
+                              color: Colors.deepOrange,
+                              textColor: Colors.white,
+                            );
+                          }
+                          else
                             return MyButton(
                               buttonTapped: (){
                                 setState(() {
@@ -138,5 +155,15 @@ class _MyHomePageState extends State<MyHomePage> {
       return true;
     }
     return false;
+  }
+  void equalPressed(){
+    String finalQuestion=userQuestion;
+    finalQuestion =finalQuestion.replaceAll('x', '*');
+    Parser p = Parser();
+    Expression exp = p.parse(finalQuestion);
+    ContextModel cm = ContextModel();
+    double eval = exp.evaluate(EvaluationType.REAL, cm);
+    userAnswer=eval.toString();
+
   }
 }
