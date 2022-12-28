@@ -1,4 +1,5 @@
 import 'package:calculator/button.dart';
+import 'package:calculator/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:math_expressions/math_expressions.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: SplashScreen(),
     );
   }
 }
