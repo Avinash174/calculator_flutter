@@ -60,23 +60,48 @@ class _MyHomePageState extends State<MyHomePage> {
           Expanded(
               flex: 2,
               child: Container(
-                color: Colors.deepOrange,
+
                 child: Center(
                     child: GridView.builder(
                       itemCount: buttons.length,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 4),
-                        itemBuilder: (BuildContext context,int index){
+                            crossAxisCount: 4,
+                        ),
+                        itemBuilder: (BuildContext context,int index)
+    {
+                        if(index ==0){
                           return MyButton(
                             buttonText: buttons[index],
-                            color: Colors.deepOrange,
+                            color: Colors.green,
+                            textColor:  Colors.white,
+                          );
+                        }
+                        else if(index ==1){
+                          return MyButton(
+                            buttonText: buttons[index],
+                            color: Colors.redAccent,
                             textColor: Colors.white,
                           );
 
-                        })),
+    }else return MyButton(
+                          buttonText: buttons[index],
+                          color: isOperator(buttons[index])? Colors.deepOrange:Colors.deepOrange[50],
+                          textColor: isOperator(buttons[index])? Colors.white:Colors.deepOrange,
+                        );
+
+
+                        }
+
+                        )),
               )),
         ],
       ),
     );
+  }
+  bool isOperator(String x){
+    if(x=='%' || x=='/' || x=='x' || x=='-' || x=='+' || x=='='){
+      return true;
+    }
+    return false;
   }
 }
